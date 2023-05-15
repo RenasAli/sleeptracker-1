@@ -1,0 +1,410 @@
+@import url(https://fonts.googleapis.com/css?family=Montserrat:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic);
+
+body{
+    background-image: url("image/backgroundImage.png") ;
+    background-color: #5F3B9F;
+    background-repeat: no-repeat;
+    background-position:calc() ;
+    background-size: cover;
+}
+
+/*   AlarmPage  */
+
+#alarm-header{
+position: absolute;
+width: 61px;
+height: 33px;
+left: 157px;
+top: 55px;
+
+font-family: 'Rounded Mplus 1c';
+font-style: normal;
+font-weight: 800;
+font-size: 20px;
+line-height: 30px;
+
+color: #C2B7F3;
+}
+
+#week-days-container{
+position: absolute;
+width: 338px;
+height: 60px;
+left: 18px;
+top: 104px;
+background-color: #5F3B9F;
+border-radius: 15px;
+align-items: center;
+
+}
+
+#week-days-list{
+  display: flex;
+  justify-content:center;
+  align-items:center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  
+}
+
+
+.week-days{
+    margin: 20px 18px;
+    position: relative;
+    
+    
+}
+.week-days a{
+    color: #ffffff;
+    text-decoration: none;
+    font-size: large;
+    
+    border-radius: 100%;
+}
+.week-days a:hover, .week-days a:active{
+    color: #C2B7F3;
+    cursor: pointer;
+}
+
+#clock-backround{
+position: absolute;
+width: 274px;
+height: 274px;
+left: 50px;
+top: 184px;
+border-radius: 100%;
+
+background: #CBC6FC;
+}
+
+/*   SetClock  */
+
+.clock-wrapper {
+    position: relative;
+    width: 100%;
+    margin-top: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .clock-wrapper .clock {
+    position: relative;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    background-color: #7B5EAE;
+  }
+  .clock .hand {
+    width: 2px;
+    height: 40%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-radius: 10px;
+    transform-origin: top;
+    background-color: #CBC6FC;
+    z-index: 1;
+  }
+  .clock .hand.hour-hand {
+    height: 22%;
+    transform: rotate(-90deg);
+  }
+  .clock .hand.minute-hand {
+    height: 30%;
+    transform: rotate(90deg);
+  }
+  .clock .hand.second-hand {
+    height: 35%;
+    transform: rotate(180deg);
+  }
+  .clock .center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    border: 2px solid #CBC6FC;
+    background-color: #5F3B9F;
+    z-index: 1;
+  }
+  .clock .numbers {
+    position: absolute;
+    width: 90%;
+    height: 90%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(90deg);
+  }
+  .clock .number {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    transform: rotate(calc(var(--i) * 30deg));
+  }
+  .clock .number span {
+    position: relative;
+    color: #CBC6FC;
+    font-size: 12px;
+    font-weight: 800;
+    transform: rotate(calc(var(--i) * -30deg - 90deg));
+  }
+  .clock .number:nth-child(3n) span {
+    font-size: 20px;
+    font-weight: 700;
+  }
+  .clock .lines {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 50%;
+    left: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translate(-50%, -50%) rotate(45deg);
+  }
+  .clock .line {
+    position: absolute;
+    width: 1px;
+    height: 90%;
+    display: flex;
+    align-items: center;
+    transform: rotate(calc(var(--i) * 30deg));
+    background-color: #CBC6FC;
+  }
+  .clock .line::after {
+    content: "";
+    position: absolute;
+    width: 500%;
+    height: 90%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #7B5EAE;
+  }
+/*   AlarmSettings  */
+
+ #alarm-settings{
+    position: absolute;
+    
+    width: 338px;
+    height: 65px;
+    top: 480px;
+    display: flex;
+    justify-content:space-between;
+    align-items:center;
+ }
+ #bedtime{
+    margin-left: 10%;
+
+ }
+ #wake-up{
+    margin-right: 10%;
+ }
+
+ .alarm-settings-header-container{
+    position:relative;
+    display: flex;
+    justify-content:center;
+    align-items:center;
+    
+ }
+ 
+ #alarm-settings-space{
+    height: 65px;
+    width: 1px;
+    background-color: #C2B7F3;
+    margin-left: 25px;
+ }
+
+
+ .alarm-settings-header-icon{
+    width: 24px;
+    height: 24px;
+ }
+ .alarm-settings-header{
+    color: #C2B7F3;
+    margin-left: 5px;
+ }
+ .alarm-times{
+    color: #C2B7F3;
+    margin-left: 30px;
+    font-size: 20px;
+ }
+
+ /*   Edit Bedtime Model  */
+
+ .modal {
+    
+    position: absolute;
+    top: 0;
+    left: 18;
+    width: 338px;
+    height: 100%;
+    display:none;
+    align-items: center;
+    justify-content: center;
+    z-index: 99;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s;
+  }
+  .modal.active {
+    opacity: 1;
+    visibility: visible;
+  }
+  .modal .content {
+    position: relative;
+    width: 338px;
+    background-color: #C2B7F3;
+    border-radius: 10px;
+    padding: 20px;
+    
+  }
+
+  .modal .content .edit-alarm-header {
+    color: #5F3B9F;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  .modal .close-alarm-model {
+    color: #5F3B9F;
+    cursor: pointer;
+  }
+  .modal .edit-alarm-body {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .alarm-time{
+    border: none;
+    background-color: #C2B7F3;
+    color: #5F3B9F;
+    width: 50px;
+    font-size: large;
+
+    
+  }
+  
+  .modal .edit-alarm-btn {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+  }
+
+  .modal .edit-alarm-btn .btn {
+    font-size: 12px;
+    font-weight: 700;
+    padding: 10px 20px;
+    border-radius: 5px;
+    color: #7B5EAE;
+    cursor: pointer;
+    text-transform: uppercase;
+  }
+  .modal .edit-alarm-btn .btn.edit-alarm-save-btn {
+    color: #C2B7F3;
+    background-color:  #7B5EAE;
+  }
+  .modal .edit-alarm-btn .btn.edit-alarm-cancel-btn {
+    color: #7B5EAE;
+    background-color: #CBC6FC
+    ;
+  }
+
+ /*   Edit Wake Up Model  */
+ .wake-up-modal {
+    
+    position: absolute;
+    top: 0;
+    left: 18;
+    width: 338px;
+    height: 100%;
+    display:none;
+    align-items: center;
+    justify-content: center;
+    z-index: 99;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s;
+  }
+  .wake-up-modal.active {
+    opacity: 1;
+    visibility: visible;
+  }
+  .wake-up-modal .wake-up-content {
+    position: relative;
+    width: 338px;
+    background-color: #C2B7F3;
+    border-radius: 10px;
+    padding: 20px;
+    
+  }
+
+  .wake-up-modal .wake-up-content .edit-wake-up-header {
+    color: #5F3B9F;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  .wake-up-modal .close-wake-up-model {
+    color: #5F3B9F;
+    cursor: pointer;
+  }
+  .wake-up-modal .edit-wake-up-body {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .wake-up-time{
+    border: none;
+    background-color: #C2B7F3;
+    color: #5F3B9F;
+    width: 50px;
+    font-size: large;
+
+    
+  }
+  
+  .wake-up-modal .edit-wake-up-btn {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+  }
+
+  .wake-up-modal .edit-wake-up-btn .wake-up-btn {
+    font-size: 12px;
+    font-weight: 700;
+    padding: 10px 20px;
+    border-radius: 5px;
+    color: #7B5EAE;
+    cursor: pointer;
+    text-transform: uppercase;
+  }
+  #edit-wake-up-submite-btn {
+    color: #C2B7F3;
+    background-color:  #7B5EAE;
+  }
+  .wake-up-modal .edit-wake-up-btn .wake-up-btn.edit-wake-up-cancel-btn {
+    color: #7B5EAE;
+    background-color: #CBC6FC
+    ;
+  }

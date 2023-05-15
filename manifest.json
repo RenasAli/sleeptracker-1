@@ -1,0 +1,21 @@
+{
+    "name": "Sleep Tracker",
+    "short_name": "Sleep Tracker",
+    "description": "Sleep better",
+    "icons": [
+      {
+        "src": "/icons/logo.png",
+        "sizes": "150x150",
+        "type": "image/png"
+        
+        
+      }
+      
+    ],
+    "start_url": "/index.html",
+    "display": "standalone",
+    "theme_color": "#C2B7F3",
+    "background_color": "#5F3B9F",
+    "orientation": "portrait-primary"
+  }
+  

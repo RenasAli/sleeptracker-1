@@ -4,9 +4,133 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="manifest" href="/manifest.json">
+    <!-- Link to css -->
+    <link rel="stylesheet" href="styles/index.css">
     <title>SleepTracker</title>
 </head>
 <body>
+
+  <div id="container">
+        <H1 id="alarm-header">Alarm</H1>
+        <div id="week-days-container">
+            <ul id="week-days-list">
+                <li class="week-days"> <a href="#">M</a></li>
+                <li class="week-days"> <a href="#">T</a></li>
+                <li class="week-days"> <a href="#">W</a></li>
+                <li class="week-days"> <a href="#">T</a></li>
+                <li class="week-days"> <a href="#">F</a></li>
+                <li class="week-days"> <a href="#">S</a></li>
+                <li class="week-days"> <a href="#">S</a></li>
+               
+            </ul>
+        </div>
+
+        <div id="clock-backround">
+            <div class="clock-wrapper">
+                <div class="clock">
+                    <div class="hand hour-hand"></div>
+                    <div class="hand minute-hand"></div>
+                    <div class="hand second-hand"></div>
+                    <div class="center"></div>
+                    <div class="numbers"></div>
+                    
+                </div>
+             </div>
+        </div>
+        <div id="alarm-settings">
+            <div id="bedtime">
+                <div class="alarm-settings-header-container">
+                    <img  class="alarm-settings-header-icon" src="icons/Bedtime.png" >
+                    <p class="alarm-settings-header">Bedtime</p>
+                </div>
+                <div class="alarm-settings-time" id="bedtime-time-div">
+                    <p class="alarm-times">23:30</p>
+                </div>
+            </div>
+            
+            <div id="alarm-settings-space"></div>
+            
+            <div id="wake-up">
+                <div class="alarm-settings-header-container">
+                    <img  class="alarm-settings-header-icon" src="icons/wakeup.png" >
+                    <p class="alarm-settings-header">Wake Up</p>
+                </div>
+                <div class="alarm-settings-time" id="wake-up-time-div">
+                    <p class="alarm-times">06:30</p>
+                </div>
+            </div>
+        </div>
+        <div class="modal active" id="edit-badtime-model">
+            <div class="content">
+                <div class="edit-alarm-header">
+                    <div class="title"><p>Bedtime</p></div>
+                    <div class="close-alarm-model close-modal"><span>x</span></div>
+                </div>
+
+                <div class="edit-alarm-body">
+                    <div class="time">
+                        <label for="hour" class="alarm-time"></label>
+                        <select name="hour" class="alarm-time"  id="bedtime-inputed-hour">
+                            
+                        </select>
+                        <label for="minutes" ></label>
+
+                        <select name="minutes" class="alarm-time" id="bedtime-inputed-minutes">
+                            
+                        </select>
+
+
+                      </div>
+                      <div class="edit-alarm-btn">
+                        <div class="btn edit-alarm-cancel-btn ">Cancel</div>
+                        <div class="btn edit-alarm-save-btn" id="edit-bedtime-submite-btn">Save</div>
+                        
+
+                      </div>
+
+                </div>
+
+            </div>
+
+        </div>
+        <div class="wake-up-modal active" id="edit-wake-up-model">
+            <div class="wake-up-content">
+                <div class="edit-wake-up-header">
+                    <div class="wake-up-title"><p>Wake Up</p></div>
+                    <div class="close-wake-up-model close-wake-up-modal"><span>x</span></div>
+                </div>
     
+                <div class="edit-wake-up-body">
+                    <div class="wake-up-time-div">
+                        <label for="wake-up-hour" class="wake-up-time"></label>
+                        <select name="wake-up-hour" class="wake-up-time"  id="wake-up-inputed-hour">
+                            
+                        </select>
+                        <label for="wake-up-minutes" ></label>
+    
+                        <select name="wake-up-minutes" class="wake-up-time" id="wake-up-inputed-minutes">
+                            
+                        </select>
+    
+    
+                      </div>
+                      <div class="edit-wake-up-btn">
+                        <div class="wake-up-btn edit-wake-up-cancel-btn " id="edit-wake-up-cancel-btn">Cancel</div>
+                        <div class="wake-up-btn edit-wake-up-save-btn" id="edit-wake-up-submite-btn">Save</div>
+                        
+    
+                      </div>
+    
+                </div>
+    
+            </div>
+    
+        </div>
+  </div>
+
+    <!--script-->
+    <script src="js/clock.js"></script>
+    <script src="js/alarm.js"></script>
 </body>
 </html>
