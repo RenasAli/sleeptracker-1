@@ -235,18 +235,22 @@ function showNotification() {
   });
   };
 
- 
+  
   
 
 function notificationPermmission(){
-  if (Notification.permission !== 'granted') {
-    Notification.requestPermission().then(function(permission) {
-      if (permission === 'granted') {
-        console.log('Notification permission granted');
-      } else {
-        console.error('Notification permission denied');
-      }
-    });
+  if ('Notification' in window) {
+    if (Notification.permission !== 'granted') {
+      Notification.requestPermission().then(function(permission) {
+        if (permission === 'granted') {
+          console.log('Notification permission granted');
+        } else {
+          console.error('Notification permission denied');
+        }
+      });
+    }
+  } else {
+    console.error('Notification API is not supported');
   }
 }
 
