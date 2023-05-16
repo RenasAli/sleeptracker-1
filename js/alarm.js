@@ -182,7 +182,7 @@ function alarmlogic(){
   if(inputedWakeUpHour.value === hoursString && inputedWakeUpMinutes.value === minutesString){
     console.log("alarm on")
     
-    playAlarm()
+    
     showNotification();
     
     stopAlarmLoop()
