@@ -92,7 +92,7 @@ submitWakeUpBtn.addEventListener('click', function(){
   
   wakeUpModal.style.display = `none`;
   
-  
+  notificationPermmission()
   startAlarmLoop()
 });
 
@@ -238,7 +238,17 @@ function showNotification() {
  
   
 
-
+function notificationPermmission(){
+  if (Notification.permission !== 'granted') {
+    Notification.requestPermission().then(function(permission) {
+      if (permission === 'granted') {
+        console.log('Notification permission granted');
+      } else {
+        console.error('Notification permission denied');
+      }
+    });
+  }
+}
 
 
 
