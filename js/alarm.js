@@ -182,7 +182,7 @@ function alarmlogic(){
   if(inputedWakeUpHour.value === hoursString && inputedWakeUpMinutes.value === minutesString){
     console.log("alarm on")
     
-    
+    playAlarm()
     showNotification();
     
     stopAlarmLoop()
@@ -215,7 +215,7 @@ function playAlarm() {
 }
 
 function stopAlarm() {
-  clearInterval(alarmInterval);
+  
   audioContext.close();
 }
 
@@ -226,18 +226,17 @@ function showNotification() {
     
 })
 
+  notification.addEventListener('close', e =>{
+    stopAlarm();
+    
+  })
   navigator.serviceWorker.ready.then(function(registration) {
     registration.showNotification('Alarm', notification);
   });
   };
 
  
-  self.addEventListener('notificationclick', function(event) {
-    if (event.action === 'stop') {
-      stopAlarm();
-      event.notification.close();
-    }
-  });
+  
 
 
 
