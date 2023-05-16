@@ -1,5 +1,7 @@
 const container = document.getElementById("container");
 
+
+
 function showAlarmPage(container, display) {
   display(container);
 }
@@ -90,7 +92,8 @@ submitWakeUpBtn.addEventListener('click', function(){
   
   wakeUpModal.style.display = `none`;
   
-  //setInterval(alarmlogic, 1000);
+  
+  startAlarmLoop()
 });
 
 
@@ -155,7 +158,7 @@ function setMinutesInWakeUp(){
 
      if (minutes >= 0 && minutes < 10) { 
       inputedWakeUpMinutes.innerHTML += `
-        <option value="0${minutes}" >0${minutes}</option>
+        <option value="${minutes}" >${minutes}</option>
       `;
      }else {
       inputedWakeUpMinutes.innerHTML += `
@@ -168,23 +171,75 @@ function setMinutesInWakeUp(){
 }
 
 // Alarm functions
-let alarmLoop = true
+let alarmLoop;
+
 function alarmlogic(){
   const now = new Date();
   let minutes = now.getMinutes();
   let minutesString = minutes.toString();
   let hours = now.getHours();
   let hoursString = hours.toString();
-  
-  console.log(inputedWakeUpHour.value)
-  console.log(hoursString)
-  console.log(inputedWakeUpMinutes.value)
-  console.log(minutesString)
   if(inputedWakeUpHour.value === hoursString && inputedWakeUpMinutes.value === minutesString){
     console.log("alarm on")
-    alarmLoop = false
+    
+    playAlarm()
+    showNotification();
+    
+    stopAlarmLoop()
   }
 }
+
+
+function startAlarmLoop() {
+  
+  alarmLoop = setInterval(alarmlogic, 1000);
+  console.log("Alarm Loop started");
+
+}
+
+
+function stopAlarmLoop() {
+  clearInterval(alarmLoop);
+  console.log("Loop stopped");
+  setTimeout(startAlarmLoop, 60000); 
+}
+
+const audioContext = new AudioContext();
+
+function playAlarm() {
+  const oscillator = audioContext.createOscillator();
+  oscillator.connect(audioContext.destination);
+  oscillator.type = 'sine';
+  oscillator.frequency.setValueAtTime(1000, audioContext.currentTime);
+  oscillator.start();
+}
+
+function stopAlarm() {
+  clearInterval(alarmInterval);
+  audioContext.close();
+}
+
+function showNotification() {
+  const notification = new Notification("Test Notification", {
+    body: " hej",
+    data: {hello: "world"}
+    
+})
+
+  navigator.serviceWorker.ready.then(function(registration) {
+    registration.showNotification('Alarm', notification);
+  });
+  };
+
+ 
+  self.addEventListener('notificationclick', function(event) {
+    if (event.action === 'stop') {
+      stopAlarm();
+      event.notification.close();
+    }
+  });
+
+
 
 
 
@@ -194,5 +249,5 @@ setMinutesInBedtime();
 setHourInBedtime();
 setHourInWakeUp();
 setMinutesInWakeUp();
-alarmlogic();
+
 //showAlarmPage(container, displayAlarmPage);
