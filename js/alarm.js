@@ -33,7 +33,8 @@ cancelWakeModal = document.querySelector(".edit-wake-up-cancel-btn"),
 inputedWakeUpMinutes = document.getElementById("wake-up-inputed-minutes"),
 inputedWakeUpHour = document.getElementById("wake-up-inputed-hour"),
 submitWakeUpBtn = document.getElementById("edit-wake-up-submite-btn"),
-wakeUpTimeDiv = document.getElementById("wake-up-time-div")
+wakeUpTimeDiv = document.getElementById("wake-up-time-div"),
+stopAlarmBtn = document.getElementById("stop-alarm-btn")
 
 ;
 
@@ -182,10 +183,10 @@ function alarmlogic(){
   if(inputedWakeUpHour.value === hoursString && inputedWakeUpMinutes.value === minutesString){
     console.log("alarm on")
     
-    playAlarm()
+    playAlarm();
     showNotification();
-    
-    stopAlarmLoop()
+    showStopAlarmBtn();
+    stopAlarmLoop();
   }
 }
 
@@ -214,6 +215,7 @@ function stopAlarm() {
   
   audio.pause()
   audio.currentTime = 0;
+  stopAlarmBtn.style.display = `none`;
 }
 
 function showNotification() {
@@ -251,6 +253,20 @@ function notificationPermmission(){
   }
 }
 
+// Stop Alarm btn functions
+
+function showStopAlarmBtn(){
+  stopAlarmBtn.style.display = `block`;
+  stopAlarmBtnfunc();
+}
+
+function stopAlarmBtnfunc(){
+  stopAlarmBtn.addEventListener('click', e =>{
+    stopAlarm();
+    
+  })
+
+}
 
 
 

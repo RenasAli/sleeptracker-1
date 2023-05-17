@@ -409,3 +409,75 @@ background: #CBC6FC;
     background-color: #CBC6FC
     ;
   }
+
+  /* Stop alarm btn*/
+
+  #stop-alarm-btn{
+    position:relative;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    left: 155px;
+    top: 600px;
+    display: none;
+    background: #5F3B9F;
+    align-items: center;
+    box-shadow: 0px 0px 25px 3px #5F3B9F;
+    color: #C2B7F3;
+  }
+
+  #stop-alarm-btn:before {
+    content: "";
+    position: absolute;
+    width: 75px;
+    height: 75px;
+    -webkit-animation-delay: 0s;
+    animation-delay: 0s;
+    -webkit-animation: pulsate1 2s;
+    animation: pulsate1 2s;
+    -webkit-animation-direction: forwards;
+    animation-direction: forwards;
+    -webkit-animation-iteration-count: infinite;
+    animation-iteration-count: infinite;
+    -webkit-animation-timing-function: steps;
+    animation-timing-function: steps;
+    opacity: 1;
+    border-radius: 50%;
+    border: 5px solid #C2B7F3;
+    top: -19px;
+    left: -19px;
+    background: rgba(198, 16, 0, 0);
+  }
+
+  @-webkit-keyframes pulsate1 {
+    0% {
+      -webkit-transform: scale(0.6);
+      transform: scale(0.6);
+      opacity: 1;
+      box-shadow: inset 0px 0px 25px 3px #C2B7F3, 0px 0px 25px 10px #C2B7F3;
+    }
+    100% {
+      -webkit-transform: scale(1);
+      transform: scale(1);
+      opacity: 0;
+      box-shadow: none;
+  
+    }
+  }
+  
+  @keyframes pulsate1 {
+    0% {
+      -webkit-transform: scale(0.6);
+      transform: scale(0.6);
+      opacity: 1;
+      box-shadow: inset 0px 0px 25px 3px #C2B7F3, 0px 0px 25px 10px #C2B7F3;
+    }
+    100% {
+      -webkit-transform: scale(1, 1);
+      transform: scale(1);
+      opacity: 0;
+      box-shadow: none;
+  
+    }
+  }
+  
