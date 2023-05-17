@@ -205,6 +205,23 @@ function stopAlarmLoop() {
   setTimeout(startAlarmLoop, 60000); 
 }
 
+let vibrationInterval;
+
+function startVibration() {
+  if (navigator.vibrate) {
+    
+    vibrationInterval = setInterval(() => {
+      navigator.vibrate([1000, 500, 2000, 500]); 
+    }, 4000); 
+  }
+}
+
+function stopVibration() {
+  if (navigator.vibrate) {
+    clearInterval(vibrationInterval);
+    navigator.vibrate(0); 
+  }
+}
 const audioContext = new AudioContext();
 
 function playAlarm() {
@@ -242,6 +259,7 @@ function notificationPermmission(){
     if (Notification.permission !== 'granted') {
       Notification.requestPermission().then(function(permission) {
         if (permission === 'granted') {
+          console.log(permission)
           console.log('Notification permission granted');
         } else {
           console.error('Notification permission denied');
