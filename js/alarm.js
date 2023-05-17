@@ -1,6 +1,6 @@
 const container = document.getElementById("container");
 
-
+console.log("hello")
 
 function showAlarmPage(container, display) {
   display(container);
