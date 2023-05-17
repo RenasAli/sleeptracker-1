@@ -1,6 +1,6 @@
 const container = document.getElementById("container");
 
-
+const audio = new Audio('audio/alarm.mp3')
 
 function showAlarmPage(container, display) {
   display(container);
@@ -207,16 +207,13 @@ function stopAlarmLoop() {
 const audioContext = new AudioContext();
 
 function playAlarm() {
-  const oscillator = audioContext.createOscillator();
-  oscillator.connect(audioContext.destination);
-  oscillator.type = 'sine';
-  oscillator.frequency.setValueAtTime(1000, audioContext.currentTime);
-  oscillator.start();
+ audio.play()
 }
 
 function stopAlarm() {
   
-  audioContext.close();
+  audio.pause()
+  audio.currentTime = 0;
 }
 
 function showNotification() {
