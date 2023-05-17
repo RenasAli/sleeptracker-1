@@ -205,6 +205,23 @@ function stopAlarmLoop() {
   setTimeout(startAlarmLoop, 60000); 
 }
 
+let vibrationInterval;
+
+function startVibration() {
+  if (navigator.vibrate) {
+    
+    vibrationInterval = setInterval(() => {
+      navigator.vibrate([1000, 500, 2000, 500]); 
+    }, 4000); 
+  }
+}
+
+function stopVibration() {
+  if (navigator.vibrate) {
+    clearInterval(vibrationInterval);
+    navigator.vibrate(0); 
+  }
+}
 const audioContext = new AudioContext();
 
 function playAlarm() {
