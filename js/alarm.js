@@ -255,20 +255,23 @@ function showNotification() {
   
 
 function notificationPermmission(){
-  if ('Notification' in window) {
-    if (Notification.permission !== 'granted') {
-      Notification.requestPermission().then(function(permission) {
-        if (permission === 'granted') {
-          console.log(permission)
-          console.log('Notification permission granted');
-        } else {
-          console.error('Notification permission denied');
-        }
-      });
-    }
-  } else {
-    console.error('Notification API is not supported');
-  }
+  if ('serviceWorker' in navigator && 'Notification' in window) {
+    // Register the service worker
+    navigator.serviceWorker.register('service-worker.js').then(function(registration) {
+        console.log('Service Worker registered with scope:', registration.scope);
+
+        // Request permission for notifications
+        Notification.requestPermission().then(function (permission) {
+            if (permission === 'granted') {
+                console.log('Notification permission granted.');
+            } else {
+                console.log('Notification permission denied.');
+            }
+        });
+    }).catch(function(error) {
+        console.log('Service Worker registration failed:', error);
+    });
+}
 }
 
 // Stop Alarm btn functions
